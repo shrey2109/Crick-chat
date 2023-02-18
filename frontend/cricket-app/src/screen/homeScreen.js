@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./HomeScreen.css";
+import "../HomeScreen.css";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MatchList from "../components/MatchList";
