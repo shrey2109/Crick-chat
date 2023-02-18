@@ -7,8 +7,27 @@ body{
     margin: 20px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+    width: 90%;
+    top: 1rem;
+}
+
+.card-header{
+    text-align: center;
 }
 
 .card:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 10px;
+}
+
+.navbar{
+    position: sticky;
+    z-index: 1;
+}
+
+.list{
+    z-index: 0;
+}
+
+.top1{
+    margin-top: 1.2rem;
 }
