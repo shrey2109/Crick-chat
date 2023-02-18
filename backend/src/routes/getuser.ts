@@ -5,7 +5,7 @@ import {
   NotFoundError,
   requireAuth,
   validateRequest,
-} from '@karkaushal/common';
+} from '../common';
 import { User } from '../models/user';
 import { param } from 'express-validator';
 const router = express.Router();

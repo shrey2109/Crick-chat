@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import { Gender, User, UserAttrs } from '../models/user';
-import { BadRequestError, validateRequest } from '@karkaushal/common';
+import { BadRequestError, validateRequest } from '../common';
 import jwt from 'jsonwebtoken';
 const router = express.Router();
 router.post(
@@ -28,15 +28,6 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Age is not valid'),
-    body('pehchanCardNo')
-    .if(body('isSeller').custom(value=>{return value}))
-       .not().isEmpty()
-       .withMessage('Pehchan Card No is Required'),
-    body('shopAddress')
-    .if(body('isSeller').custom(value=>{return value}))
-    .not().isEmpty()
-    .withMessage('Shop Address is Required'),
-
   ],
   validateRequest,
   async (req: Request, res: Response) => {
@@ -46,48 +37,23 @@ router.post(
       name,
       gender,
       age,
-      shippingAddress,
-      isSeller,
-      pehchanCardNo,
-      shopAddress,
-      website
     }: UserAttrs = req.body;
 
     const existingUser = await User.findOne({
-      $or:[{ email },{pehchanCardNo}]
+      email 
     });
 
     if (existingUser) {
       throw new BadRequestError('User Already Exists');
     }
     let user;
-      if(!isSeller)
-      {
         user = User.build({
           email,
           password,
           name,
           gender,
           age,
-          shippingAddress,
-          isSeller,
         });
-      }
-      else
-      {
-        user = User.build({
-          email,
-          password,
-          name,
-          gender,
-          age,
-          shopAddress,
-          website,
-          pehchanCardNo,
-          isSeller,
-        });
-
-      }
    
     await user.save();
     // console.log(user.isSeller);
@@ -97,7 +63,6 @@ router.post(
       {
         id: user.id,
         email: user.email,
-        isSeller:user.isSeller,
       },
       process.env.JWT_KEY!
     );
@@ -106,6 +71,7 @@ router.post(
     req.session = {
       jwt: useJWT,
     };
+    console.log(req.session.jwt);
 
     return res.status(201).send(user);
   }

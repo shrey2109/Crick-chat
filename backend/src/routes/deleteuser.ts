@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { param } from "express-validator";
-import { currentUser, NotAuthorizedError, NotFoundError, requireAuth, validateRequest } from "@karkaushal/common";
+import { currentUser, NotAuthorizedError, NotFoundError, requireAuth, validateRequest } from "../common";
 
 import { User } from "../models/user";
 

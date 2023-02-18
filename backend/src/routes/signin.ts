@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import { validateRequest ,BadRequestError } from '@karkaushal/common';
+import { validateRequest ,BadRequestError } from '../common';
 const router = express.Router();
 import { User } from '../models/user';
 import { Password } from '../services/password';
@@ -38,11 +38,9 @@ router.post(
       {
         id: existingUser.id,
         email: existingUser.email,
-        isSeller: existingUser.isSeller,
         name: existingUser.name,
         gender: existingUser.gender,
         age: existingUser.age,
-        shippingAddress: existingUser.shippingAddress,
       },
       process.env.JWT_KEY!
     )

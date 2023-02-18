@@ -7,9 +7,8 @@ import {
   requireAuth,
   NotAuthorizedError,
   currentUser,
-} from '@karkaushal/common';
+} from '../common';
 import { User, UserAttrs } from '../models/user';
-import { app } from '../app';
 const router = express.Router();
 
 router.patch(
@@ -34,9 +33,6 @@ router.patch(
       name,
       gender,
       age,
-      shippingAddress,
-      shopAddress,
-      website,
     }: { newPassword: string } & UserAttrs = req.body;
 
     if (req.currentUser?.id !== req.params.userId) {
@@ -52,33 +48,17 @@ router.patch(
     }
 
     // if email property provided then set as new email otherwise old email. similar for other
-    if(user.isSeller)
-    {
+    
+    
       user.set({
         email: email ?? user.email,
         password: password ?? user.password,
         name: name ?? user.name,
         gender: gender ?? user.gender,
         age: age ?? user.age,
-        shopAddress:shopAddress ?? user.shopAddress,
-        website:website ?? user.website
-      });
 
-    }
-    else{
-      user.set({
-        email: email ?? user.email,
-        password: password ?? user.password,
-        name: name ?? user.name,
-        gender: gender ?? user.gender,
-        age: age ?? user.age,
-        shippingAddress: shippingAddress ?? user.shippingAddress,
       });
-    }
-  
-
     await user.save();
-
     // Generate new JWT for updated user property
     const userJWT = jwt.sign(
       {
