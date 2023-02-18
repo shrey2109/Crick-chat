@@ -10,12 +10,10 @@ const HomeScreen = () => {
 
   return (
     <>
-<<<<<<< HEAD
       <div className="contaier">
         <MatchList/>
         <NewsList/>
       </div>
-=======
       <div class="d-md-flex">
         <div class="col-md-8">
             <MatchList/>
@@ -25,7 +23,6 @@ const HomeScreen = () => {
             <NewsList/>
             </div>
         </div>
->>>>>>> 7e23e9a89c6b2c1ef8928350107ea8bafc1c64f8
     </>
   );
 };

@@ -11,8 +11,5 @@ body{
 
 .card:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 10px;
-<<<<<<< HEAD
     background-color: aquamarine;
-=======
->>>>>>> 7e23e9a89c6b2c1ef8928350107ea8bafc1c64f8
 }
