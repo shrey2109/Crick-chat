@@ -14,15 +14,6 @@ const HomeScreen = () => {
         <MatchList/>
         <NewsList/>
       </div>
-      <div class="d-md-flex">
-        <div class="col-md-8">
-            <MatchList/>
-        </div>
-
-        <div class="col-md-4">
-            <NewsList/>
-            </div>
-        </div>
     </>
   );
 };
