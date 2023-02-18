@@ -1,49 +1,21 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import jsonData from "./crickData.json";
+import "./HomeScreen.css";
 
-const App = () => {
-  const [cricData, setCricData] = useState([]);
-  console.log(jsonData);
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MatchList from "../components/MatchList";
+import NewsList from "../components/NewsList";
 
-  const getData = async () => {
-    setCricData(jsonData.data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+const HomeScreen = () => {
+ 
 
   return (
     <>
       <div className="contaier">
-        <div className="matchList">
-          {cricData.map((item) => {
-            return (
-     
-
-              
-              (<div class="card">
-                    <div class="card-header">
-                        MATCH DETAILS
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title">{item.name}</h2>
-                        <h3 class="card-title">{item.matchType}</h3>
-                        <p class="card-text">{item.status}</p> 
-                        <a href="#" class="btn btn-primary">Go To Chat</a>
-                    </div>
-                </div>)
-            );
-          })}
-        </div>
-
-        <div className="newsList">
-          gsdfgdfgghjfdksajfkhdjksagfgkjgdsfkajfgskjdahjriueopqruwpoeiurpoweropiupvuxpczivpoizxcvoiulgsdjhfkgdsakskjdkaj
-        </div>
+        <MatchList/>
+        <NewsList/>
       </div>
     </>
   );
 };
 
-export default App;
+export default HomeScreen;
