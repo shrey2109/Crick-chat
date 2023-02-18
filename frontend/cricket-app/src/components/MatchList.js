@@ -1,43 +1,46 @@
-import React, {useEffect, useState} from 'react'
-import jsonData from '../components/crickData.json';
+import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import jsonData from "../components/crickData.json";
+import { useNavigate } from "react-router-dom";
 
 const MatchList = () => {
-    const [cricData, setCricData] = useState([]);
-    console.log(jsonData);
-  
-    const getData = async () => {
-      setCricData(jsonData.data);
-    };
-  
-    useEffect(() => {
-      getData();
-    }, []);
+  const [cricData, setCricData] = useState([]);
+  console.log(jsonData);
+
+  let navigate = useNavigate();
+
+  const getData = async () => {
+    setCricData(jsonData.data);
+  };
+
+  const Rendertomain = () => {
+    navigate("/main");
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    
-    <>
-        <h1> MATCH LIST </h1>
-        <div className="matchList">
-          {cricData.map((item) => {
-            return (
+    <div className="list">
+      {/* <h1> MATCH LIST </h1> */}
+      <div>
+        {cricData.map((item) => {
+          return (
+            <div class="card">
+              <div class="card-header">MATCH DETAILS</div>
+              <div class="card-body">
+                <h3 class="card-title">{item.name}</h3>
+                <h4 class="card-title">{item.matchType}</h4>
+                <p class="card-text">{item.status}</p>
+                <Button onClick={Rendertomain}>Open Chat</Button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
-              (<div class="card">
-                    <div class="card-header">
-                        MATCH DETAILS
-                    </div>
-                    <div class="card-body">
-                        <h2 class="card-title">{item.name}</h2>
-                        <h3 class="card-title">{item.matchType}</h3>
-                        <p class="card-text">{item.status}</p> 
-                        <a href="#" class="btn btn-primary">Go To Chat</a>
-                    </div>
-                </div>)
-            );
-          })}
-        </div>
-
-    </>
-  )
-}
-
-
-export default MatchList
+export default MatchList;
