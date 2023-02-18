@@ -10,7 +10,6 @@ const HomeScreen = () => {
 
   return (
     <>
-      {/* <div class="d-md-flex h-md-100 align-items-center"> */}
       <div class="d-md-flex">
         <div class="col-md-8">
             <MatchList/>
