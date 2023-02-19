@@ -2,6 +2,7 @@ import { app } from './app';
 import mongoose from 'mongoose';
 import http from "http";
 import { Server} from "socket.io";
+import path from 'path';
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer,{
@@ -9,7 +10,6 @@ const io = new Server(httpServer,{
     origin: 'http://localhost:3001'
   }
 });
-
 io.on('connection', function (socket) {
   socket.on('newuser', function (username) {
     socket.broadcast.emit('update', username + 'joined the chat');
@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
 });
 httpServer.listen(5000);
 
-require('dotenv').config();
+require('dotenv').config({path:path.resolve(__dirname,'./.env')});
 
 
 const  start = async() => {

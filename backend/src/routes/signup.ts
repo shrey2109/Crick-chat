@@ -71,7 +71,7 @@ router.post(
     req.session = {
       jwt: useJWT,
     };
-    console.log(req.session.jwt);
+    // console.log(req.session.jwt);
 
     return res.status(201).send(user);
   }

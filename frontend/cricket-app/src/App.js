@@ -5,7 +5,6 @@ import MainScreen from "./screen/MainScreen";
 import UserScreen from "./screen/UserScreen";
 import DoChat from "./components/Chat/DoChat";
 import ScoreScreen from "./screen/ScoreScreen";
-import MainScreen from "./screen/MainScreen";
 
 const App = () => {
   return (
@@ -19,3 +18,5 @@ const App = () => {
     </Router>
   );
 };
+
+export default App;
