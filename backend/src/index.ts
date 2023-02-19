@@ -1,5 +1,30 @@
 import { app } from './app';
 import mongoose from 'mongoose';
+import http from "http";
+import { Server} from "socket.io";
+
+const httpServer = http.createServer(app);
+const io = new Server(httpServer,{
+  cors:{
+    origin: 'http://localhost:3001'
+  }
+});
+
+io.on('connection', function (socket) {
+  socket.on('newuser', function (username) {
+    socket.broadcast.emit('update', username + 'joined the chat');
+  });
+  socket.on('exituser', function (username) {
+    socket.broadcast.emit('update', username + 'left the chat');
+  });
+
+  socket.on('chat', function (message) {
+    console.log('On backend side');
+    socket.broadcast.emit('chat',message);
+  });
+});
+httpServer.listen(5000);
+
 require('dotenv').config();
 
 
