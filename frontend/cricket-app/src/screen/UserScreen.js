@@ -4,41 +4,64 @@ import { useNavigate } from "react-router-dom";
 
 import "./UserScreen.css";
 
-const UserScreen =()=>{
+const UserScreen = () => {
   const navigate = useNavigate();
-  const HandleSubmit = async (event)=>{
+  const HandleSubmit = async (event) => {
     event.preventDefault();
     const mail = document.getElementById("form2Example11").value;
     const password = document.getElementById("form2Example22").value;
     // const username = document.getElementById('form2Example33').value;
     // const gender = document.getElementsByName('gender').value;
- 
-   //  const formData =new FormData();
-   //  console.log(document.getElementById("form2Example11").value);
-   //  formData.append("email", document.getElementById("form2Example11").value);
-   //  for(let [k, v] of formData.entries()){
-   //    console.log(k, v);
-       
-   //   }
-    
+
+    //  const formData =new FormData();
+    //  console.log(document.getElementById("form2Example11").value);
+    //  formData.append("email", document.getElementById("form2Example11").value);
+    //  for(let [k, v] of formData.entries()){
+    //    console.log(k, v);
+
+    //   }
+
     const optionAxios = {
-     headers: {
+      headers: {
         'Content-Type': 'application/json',
-     },
-   };
-    try{
-     const {data} = await axios.post('http://localhost:3000/api/users/signup',{
-     "email": mail,
-     "password": password,
-     "gender":"male",
-     "name":"HETAV",
-     "age":34
-    },optionAxios );
-    navigate('/home');
- 
-    }catch(error)
-    {
-     console.log(error.response);
+      },
+    };
+    try {
+      if (!signUp) {
+
+        const { data } = await axios.post('http://localhost:3000/api/users/signin', {
+          "email": mail,
+          "password": password,
+        }, optionAxios);
+        navigate('/home');
+      }
+      else {
+
+        const gender=document.getElementsByName("gender");
+        let fg;
+        for(let ele =0;ele<gender.length;ele++)
+        {
+          if(gender[ele].checked)
+          {
+              fg=gender[ele].value;
+          }
+
+        }
+        const name=document.getElementById("form2Example33").value;
+        const { data } = await axios.post('http://localhost:3000/api/users/signup', {
+          "email": mail,
+          "password": password,
+          "gender": fg,
+          "name": name,
+          "age": 24
+        }, optionAxios);
+        navigate('/home');
+
+      }
+
+    } catch (error) {
+      console.log(error);
+        // navigate('/error');
     }
      
  }
@@ -84,45 +107,45 @@ const UserScreen =()=>{
                       <input type="text" id="form2Example33" className="form-control" />
                     </div>
 
-                    <div className="form-outline mb-4">
-                      Select Your Gender:&nbsp;
-                      <input type="radio" value="MALE" name="gender"/> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="FEMALE" name="gender"/> Female
+                            <div className="form-outline mb-4">
+                              Select Your Gender:&nbsp;
+                              <input type="radio" value="male" name="gender" /> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="female" name="gender" /> Female
+                            </div>
+                          </>
+                        }
+
+
+                        <div className="text-center pt-1 mb-5 pb-1">
+                          <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
+                            in</button><br />
+
+                        </div>
+                        {!signUp &&
+                          <>
+                            <div className="d-flex align-items-center justify-content-center pb-4">
+                              <p className="mb-0 me-2">Don't have an account?</p>
+                              <button type="button" className="btn" id="createBtn" onClick={signIn}>Create new</button>
+                            </div>
+                          </>
+                        }
+                      </form>
+
                     </div>
-                    </>
-                   }
-                    
-  
-                    <div className="text-center pt-1 mb-5 pb-1">
-                      <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
-                        in</button><br/>
-                      
+                  </div>
+                  <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                      <h4 className="mb-4">Why Just Watch?? When You Can Watch And Chat Together</h4>
+                      <p className="small mb-0">Welcome to Cricket Chat, the ultimate app for cricket fans! Here you can chat with other cricket lovers, get live updates on matches, scores and stats, and access exclusive content from your favorite players and teams. Whether you are a fan of test cricket, one-day internationals, or T20 leagues, Cricket Chat has something for you. Join now and start chatting! 🏏</p>
                     </div>
-                   {!signUp &&
-                    <>
-                    <div className="d-flex align-items-center justify-content-center pb-4">
-                      <p className="mb-0 me-2">Don't have an account?</p>
-                      <button type="button" className="btn" id="createBtn" onClick={signIn}>Create new</button>
-                    </div>
-                    </>
-                   }
-                  </form>
-  
-                </div>
-              </div>
-              <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
-                <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                  <h4 className="mb-4">Why Just Watch?? When You Can Watch And Chat Together</h4>
-                  <p className="small mb-0">Welcome to Cricket Chat, the ultimate app for cricket fans! Here you can chat with other cricket lovers, get live updates on matches, scores and stats, and access exclusive content from your favorite players and teams. Whether you are a fan of test cricket, one-day internationals, or T20 leagues, Cricket Chat has something for you. Join now and start chatting! 🏏</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-        </>
-      );
+      </section>
+    </>
+  );
 }
 
 export default UserScreen;
