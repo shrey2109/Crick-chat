@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import http from "http";
 import { Server} from "socket.io";
 import path from 'path';
-
 const httpServer = http.createServer(app);
 const io = new Server(httpServer,{
   cors:{

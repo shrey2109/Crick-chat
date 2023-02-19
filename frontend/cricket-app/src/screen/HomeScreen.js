@@ -9,16 +9,16 @@ import "../login.css";
 const HomeScreen = () => {
   return (
     <>
-      <div className="homeclass" style={{ background: "#00b33c" }}>
-        <Header />
-        <div className="d-md-flex">
-          <div class="col-md-8">
-            <MatchList />
-          </div>
-          <div class="col-md-4">
-            <NewsList />
-          </div>
+    <div className="homeclass" style={{background:'white'}}>
+      <Header />
+      <div className="d-md-flex">
+        <div class="col-md-8">
+          <MatchList />
         </div>
+        <div class="col-md-4">
+          <NewsList />
+        </div>
+      </div>
       </div>
     </>
   );

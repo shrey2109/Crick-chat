@@ -21,18 +21,8 @@ const NewsList = () => {
     <div className="list top1">
       {news.map((item) => {
         return (
-          // <div class="card">
-          //   {/* <div class="card-header"></div> */}
-          //   <div class="card-body">
-          //     <h5 class="card-title">{item.title}</h5>
-          //     <p class="card-title">{item.description}</p>
-          //     {/* <p class="card-text">{item.status}</p> */}
-          //     <a href={item.url} class="btn btn-primary">
-          //       Read News
-          //     </a>
-          //   </div>
-          // </div>
           <div class="card" style={{ width: "18rem" }}>
+          <div class="card-body" style={{backgroundColor:"#e5e5e5"}}>
             <img
               class="card-img-top"
               src={item.urlToImage}
@@ -44,6 +34,7 @@ const NewsList = () => {
               <a href={item.url} class="btn btn-primary">
                 Read News
               </a>
+            </div>
             </div>
           </div>
         );
