@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 const  start = async() => {
-  const PORT= 3000 || process.env.PORT || 3000;
+  const PORT= 3000 || process.env.PORT;
   if(!process.env.JWT_KEY)
   {
     throw new Error('JWT_KEY environment variable is not set');
@@ -14,8 +14,9 @@ const  start = async() => {
     throw new Error('MONGO_URI environment variable is not set');
   }
 
-
+  console.log(process.env.MONGO_URI);
   try{
+    console.log(process.env.MONGO_URI);
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Connected to MongoDB!');
 
