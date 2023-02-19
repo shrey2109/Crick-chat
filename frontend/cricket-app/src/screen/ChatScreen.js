@@ -1,7 +1,7 @@
 import React from "react";
-
+import DoChat from "../components/Chat/DoChat";
 const ChatScreen = () => {
-  return <div>ChatScreen</div>;
+  return <DoChat/>;
 };
 
 export default ChatScreen;
