@@ -16,9 +16,13 @@ const HomeScreen = () => {
 //     backgroundSize: 'cover',
 //     backgroundRepeat: 'no-repeat',
 // };
+
+
+
+
   return (
     <>
-    <div style={{background:'#00b33c'}}>
+    <div className="homeclass" style={{background:'#00b33c'}}>
       <Header />
       <div className="d-md-flex">
         <div class="col-md-8">
@@ -31,6 +35,27 @@ const HomeScreen = () => {
       </div>
     </>
   );
+
+
+
+
+  // return (
+  //   <>
+  //   <div class="container-fluid">
+  //     <Header />
+  //     <div class="row">
+  //       <div class="col-sm-8 col-md-8 col-lg-8">
+  //         <MatchList />
+  //       </div>
+  //       <div class="col-sm-4 col-md-4 col-lg-4">
+  //         <NewsList />
+  //       </div>
+  //     </div>
+  //     </div>
+  //   </>
+  // );
+
+
 };
 
 export default HomeScreen;

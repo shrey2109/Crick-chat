@@ -1,4 +1,6 @@
 body{
+    margin: 0;
+    padding: 0;
     background-color: rgb(161, 227, 255);
     width: 100%;
 }
@@ -13,6 +15,7 @@ body{
 
 .card-header{
     text-align: center;
+
 }
 
 .card:hover{
