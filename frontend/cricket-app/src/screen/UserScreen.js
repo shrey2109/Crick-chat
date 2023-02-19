@@ -1,6 +1,31 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./UserScreen.css";
+const handleSubmit = async (event)=>{
+   event.preventDefault();
+   const formData =new FormData(event.target);
+   console.log(formData);
 
+   const optionAxios = {
+    headers: {
+       'Content-Type': 'application/json',
+    },
+  };
+   try{
+    const {data} = await axios.post('http://localhost:3000/api/users/signup',{
+    "email":"hrs1705@gmail.com",
+    "password":"jipjpaojhg",
+    "gender":"male",
+    "name":"HETAV",
+    "age":34
+   },optionAxios )
+   }catch(error)
+   {
+    console.log(error.response);
+   }
+   
+   
+}
 const UserScreen =()=>{
     const [signUp,doSignUp] = useState(false);
     const signIn = () =>{
@@ -23,46 +48,48 @@ const UserScreen =()=>{
                     <h4 className="mt-1 mb-5 pb-1">We are The CrickChat Team</h4>
                   </div>
   
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <p>Please login to your account</p>
-  
+                      <br/>
                     <div className="form-outline mb-4">
+                      <label className="form-label" htmlFor="form2Example11">Email</label>
                       <input type="email" id="form2Example11" className="form-control"
                         placeholder="abc@gmail.com " />
-                      <label className="form-label" htmlFor="form2Example11">Email</label>
                     </div>
   
                     <div className="form-outline mb-4">
-                      <input type="password" placeholder="Enter Your Password " id="form2Example22" className="form-control" />
                       <label className="form-label" htmlFor="form2Example22">Password</label>
+                      <input type="password" placeholder="Enter Your Password " id="form2Example22" className="form-control" />
                     </div>
                    
                    {signUp &&   
                     <>
                     <div className="form-outline mb-4">
-                      <input type="text" id="form2Example33" className="form-control" />
                       <label className="form-label" htmlFor="form2Example33">UserName</label>
+                      <input type="text" id="form2Example33" className="form-control" />
                     </div>
 
                     <div className="form-outline mb-4">
-                      Select Your Gender:<br/>
-                      <input type="radio" value="MALE" name="gender"/> Male  &nbsp; <input type="radio" value="FEMALE" name="gender"/> Female
+                      Select Your Gender:&nbsp;
+                      <input type="radio" value="MALE" name="gender"/> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="FEMALE" name="gender"/> Female
                     </div>
                     </>
                    }
                     
   
                     <div className="text-center pt-1 mb-5 pb-1">
-                      <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
+                      <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
                         in</button><br/>
-                      <a className="text-muted" href="#!">Forgot password?</a>
+                      
                     </div>
-  
+                   {!signUp &&
+                    <>
                     <div className="d-flex align-items-center justify-content-center pb-4">
                       <p className="mb-0 me-2">Don't have an account?</p>
                       <button type="button" className="btn btn-outline-danger" onClick={signIn}>Create new</button>
                     </div>
-  
+                    </>
+                   }
                   </form>
   
                 </div>

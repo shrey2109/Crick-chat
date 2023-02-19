@@ -9,8 +9,10 @@ import cookieSession from 'cookie-session';
 import { updateUserRouter } from './routes/updateuser';
 import { getUserRouter } from './routes/getuser';
 import { deleteUserRouter } from './routes/deleteuser';
+import cors from 'cors';
 import helmet from 'helmet';
 const app = express();
+app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
