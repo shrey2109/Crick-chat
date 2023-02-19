@@ -1,17 +1,17 @@
 .gradient-custom-2 {
+
     /* fallback for old browsers */
-    background: #fccb90;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+    background: rgb(231, 145, 7);
+    /* background: rgb(231,7,117); */
+    background: linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%);
+    background: -webkit-linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%);
+
     }
     
     @media (min-width: 768px) {
     .gradient-form {
-    height: 100vh !important;
+    height: 100vh ;
     }
     }
     @media (min-width: 769px) {
@@ -19,4 +19,13 @@
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
     }
+    }
+    
+    #createBtn{
+        border: 2px solid rgb(255, 55, 152);
+        color: rgb(255, 55, 152);
+    }
+    #createBtn:hover{
+        background-color: rgb(255, 55, 152);
+        color: white;
     }
