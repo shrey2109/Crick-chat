@@ -16,22 +16,15 @@ const ScoreScreen = () => {
 
  
   return (
-    <div>
-      {/* <h1> MATCH LIST </h1> */}
-      <div>
+      <div style={{display:'flex',justifyContent:'left',flexDirection:'column'}}>
           <h3>{scoreBoard.name}</h3>
           <h5>{scoreBoard.matchType}</h5>
           <b>{scoreBoard.status}</b>
           <p>Vanue : {scoreBoard.venue}</p>
 
           <h4>{scoreBoard.score}</h4>
-
-
-
-
-
           <h4> Batting Inning</h4>
-          <table class="table table-hover table-dark">
+          <table  class="table table-hover table-dark">
             <thead>
               <tr>
                 <th scope="col">Batter</th>
@@ -62,11 +55,8 @@ const ScoreScreen = () => {
             </tbody>
           </table>
 
-        
-
-
           <h4> Bowling Inning</h4>
-          <table class="table table-hover table-dark">
+          <table  class="table table-hover table-dark">
             <thead>
               <tr>
                 <th scope="col">Bowler</th>
@@ -95,9 +85,7 @@ const ScoreScreen = () => {
           <p>Umpire : {scoreBoard.umpire}</p>
           <p>Third Umpire : {scoreBoard.thirdumpire}</p>
 
-
       </div>
-    </div>
   );
 
 
