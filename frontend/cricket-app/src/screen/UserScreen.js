@@ -61,7 +61,7 @@ const UserScreen = () => {
 
     } catch (error) {
       console.log(error);
-        // navigate('/error');
+        navigate('/error');
     }
      
  }
