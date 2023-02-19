@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<UserScreen/>}/>
         <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/main" element={<MainScreen/>}/>
+        <Route path="/chat" element={<DoChat/>}/>
       </Routes>
     </Router>
   );
