@@ -5,7 +5,7 @@ const DoChat = () =>{
     return(
         <>
             <div className="app">
-           <div className="screen join-screen active">
+           {/* <div className="screen join-screen active">
             <div className="form">
                 <h2>Join Chatroom</h2>
                 <div className="form-input">
@@ -16,7 +16,7 @@ const DoChat = () =>{
                     <button id="join-user">Join</button>
                 </div>
             </div>
-        </div>
+        </div> */}
         <div className="screen chat-screen active">
             <div className="header">
                 <div className="logo">Chatroom</div>
