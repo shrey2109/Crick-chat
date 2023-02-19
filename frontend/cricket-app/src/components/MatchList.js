@@ -23,9 +23,10 @@ const MatchList = () => {
   }, []);
 
   const myStyle={
-    backgroundImage: 
-"url('https://th.bing.com/th/id/R.96f62ee298a3b93c0077951a6738e294?rik=VZ2VrlzHNnGAOg&riu=http%3a%2f%2fkriskindu.com%2fwp-content%2fuploads%2f2016%2f01%2fCricket_pitch.jpg&ehk=slHNdVL9%2f7UYtezLp4gNM7nFZmdsQFGreeBNc0f8B9I%3d&risl=&pid=ImgRaw&r=0')",
-color:'black'
+    // backgroundColor: "linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%)"
+    // backgroundColor: "linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%)"
+    // backgroundColor: "linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%);",
+// color:'black'
 };
 
   return (
@@ -35,12 +36,13 @@ color:'black'
         {cricData.map((item) => {
           return (
             <div class="card">
-              <div class="card-header" style={{background:'#002699', color:'#ff8000'}}>MATCH DETAILS</div>
-              <div class="card-body" style={myStyle}>
+              <div class="card-header" style={{background:'black', color:'#ff8000'}}>MATCH DETAILS</div>
+              {/* <div class="card-body" style={{background:"linear-gradient(144deg, rgba(231,7,117,1) 35%, rgba(166,4,198,1) 59%, rgba(153,0,255,1) 91%)"}}> */}
+              <div class="card-body" style={{backgroundColor:"#e5e5e5"}}>
                 <h3 class="card-title">{item.name}</h3>
                 <h4 class="card-title">{item.matchType}</h4>
                 <p class="card-text">{item.status}</p>
-                <Button onClick={Rendertomain} className="button-64" role={Button}><span class='text'>Open Chat</span></Button>
+                <Button onClick={Rendertomain} className="button-64" role={Button}><span class='text'> Let's Chat </span></Button>
               </div>
             </div>
           );

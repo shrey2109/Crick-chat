@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
   return (
     <>
-    <div className="homeclass" style={{background:'#00b33c'}}>
+    <div className="homeclass" style={{background:'white'}}>
       <Header />
       <div className="d-md-flex">
         <div class="col-md-8">

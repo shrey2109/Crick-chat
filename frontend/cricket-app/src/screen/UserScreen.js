@@ -49,7 +49,7 @@ const UserScreen =()=>{
     return (
         <>
           <section className="h-100 gradient-form"  style={{backgroundColor: "black"}}>
-    <div className="container py-5 h-100">
+    <div className="container h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-xl-10">
           <div className="card rounded-3 text-black">

@@ -8,7 +8,7 @@ body{
 .card{
     margin: 20px;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 5px; */
     width: 90%;
     top: 1rem;
 }
@@ -20,6 +20,7 @@ body{
 
 .card:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 10px;
+    /* box-shadow: #adadad 5px 5px 10px; */
 }
 
 .navbar{
