@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import 'express-async-errors';
+import path from 'path';
 import { currentUserRouter } from './routes/currentuser';
 import { signinRouter } from './routes/signin';
 import { signoutRouter } from './routes/signout';

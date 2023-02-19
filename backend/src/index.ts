@@ -1,6 +1,8 @@
 import { app } from './app';
 import mongoose from 'mongoose';
 require('dotenv').config();
+
+
 const  start = async() => {
   const PORT= 3000 || process.env.PORT || 3000;
   if(!process.env.JWT_KEY)
@@ -21,9 +23,11 @@ const  start = async() => {
   {
     console.log(err);
   }
-  app.listen(PORT, () => {
+  const server=app.listen(PORT, () => {
     console.log(' User service listening on port '+PORT);
     });
+    return server;
 };
 
-start();
+const server=start();
+export {server}
