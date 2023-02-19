@@ -9,7 +9,6 @@ const io = new Server(httpServer,{
     origin: 'http://localhost:3001'
   }
 });
-
 io.on('connection', function (socket) {
   socket.on('newuser', function (username) {
     socket.broadcast.emit('update', username + 'joined the chat');
@@ -38,9 +37,8 @@ const  start = async() => {
     throw new Error('MONGO_URI environment variable is not set');
   }
 
-  console.log(process.env.MONGO_URI);
   try{
-    console.log(process.env.MONGO_URI);
+   
     await mongoose.connect(process.env.MONGO_URI);
     console.log('Connected to MongoDB!');
 

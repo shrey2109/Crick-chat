@@ -72,7 +72,7 @@ const UserScreen = () => {
     return (
         <>
           <section className="h-100 gradient-form"  style={{backgroundColor: "black"}}>
-    <div className="container h-100">
+    <div className="container py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-xl-10">
           <div className="card rounded-3 text-black">
@@ -107,45 +107,45 @@ const UserScreen = () => {
                       <input type="text" id="form2Example33" className="form-control" />
                     </div>
 
-                            <div className="form-outline mb-4">
-                              Select Your Gender:&nbsp;
-                              <input type="radio" value="male" name="gender" /> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="female" name="gender" /> Female
-                            </div>
-                          </>
-                        }
-
-
-                        <div className="text-center pt-1 mb-5 pb-1">
-                          <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
-                            in</button><br />
-
-                        </div>
-                        {!signUp &&
-                          <>
-                            <div className="d-flex align-items-center justify-content-center pb-4">
-                              <p className="mb-0 me-2">Don't have an account?</p>
-                              <button type="button" className="btn" id="createBtn" onClick={signIn}>Create new</button>
-                            </div>
-                          </>
-                        }
-                      </form>
-
+                    <div className="form-outline mb-4">
+                      Select Your Gender:&nbsp;
+                      <input type="radio" value="MALE" name="gender"/> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="FEMALE" name="gender"/> Female
                     </div>
-                  </div>
-                  <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
-                    <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 className="mb-4">Why Just Watch?? When You Can Watch And Chat Together</h4>
-                      <p className="small mb-0">Welcome to Cricket Chat, the ultimate app for cricket fans! Here you can chat with other cricket lovers, get live updates on matches, scores and stats, and access exclusive content from your favorite players and teams. Whether you are a fan of test cricket, one-day internationals, or T20 leagues, Cricket Chat has something for you. Join now and start chatting! 🏏</p>
+                    </>
+                   }
+                    
+  
+                    <div className="text-center pt-1 mb-5 pb-1">
+                      <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
+                        in</button><br/>
+                      
                     </div>
-                  </div>
+                   {!signUp &&
+                    <>
+                    <div className="d-flex align-items-center justify-content-center pb-4">
+                      <p className="mb-0 me-2">Don't have an account?</p>
+                      <button type="button" className="btn" id="createBtn" onClick={signIn}>Create new</button>
+                    </div>
+                    </>
+                   }
+                  </form>
+  
+                </div>
+              </div>
+              <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 className="mb-4">Why Just Watch?? When You Can Watch And Chat Together</h4>
+                  <p className="small mb-0">Welcome to Cricket Chat, the ultimate app for cricket fans! Here you can chat with other cricket lovers, get live updates on matches, scores and stats, and access exclusive content from your favorite players and teams. Whether you are a fan of test cricket, one-day internationals, or T20 leagues, Cricket Chat has something for you. Join now and start chatting! 🏏</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
-  );
+      </div>
+    </div>
+  </section>
+        </>
+      );
 }
 
 export default UserScreen;

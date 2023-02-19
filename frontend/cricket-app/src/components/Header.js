@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       variant="dark"
     >
       <Container>
-        <Navbar.Brand href="#home">CrikChat</Navbar.Brand>
+        <Navbar.Brand href="#home">CrickChat</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         {/* <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
