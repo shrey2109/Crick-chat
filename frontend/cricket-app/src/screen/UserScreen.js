@@ -1,32 +1,47 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./UserScreen.css";
-const handleSubmit = async (event)=>{
-   event.preventDefault();
-   const formData =new FormData(event.target);
-   console.log(formData);
+import { useNavigate } from "react-router-dom";
 
-   const optionAxios = {
-    headers: {
-       'Content-Type': 'application/json',
-    },
-  };
-   try{
-    const {data} = await axios.post('http://localhost:3000/api/users/signup',{
-    "email":"hrs1705@gmail.com",
-    "password":"jipjpaojhg",
-    "gender":"male",
-    "name":"HETAV",
-    "age":34
-   },optionAxios )
-   }catch(error)
-   {
-    console.log(error.response);
-   }
-   
-   
-}
+import "./UserScreen.css";
+
 const UserScreen =()=>{
+  const navigate = useNavigate();
+  const HandleSubmit = async (event)=>{
+    event.preventDefault();
+    const mail = document.getElementById("form2Example11").value;
+    const password = document.getElementById("form2Example22").value;
+    // const username = document.getElementById('form2Example33').value;
+    // const gender = document.getElementsByName('gender').value;
+ 
+   //  const formData =new FormData();
+   //  console.log(document.getElementById("form2Example11").value);
+   //  formData.append("email", document.getElementById("form2Example11").value);
+   //  for(let [k, v] of formData.entries()){
+   //    console.log(k, v);
+       
+   //   }
+    
+    const optionAxios = {
+     headers: {
+        'Content-Type': 'application/json',
+     },
+   };
+    try{
+     const {data} = await axios.post('http://localhost:3000/api/users/signup',{
+     "email": mail,
+     "password": password,
+     "gender":"male",
+     "name":"HETAV",
+     "age":34
+    },optionAxios );
+    navigate('/home');
+ 
+    }catch(error)
+    {
+     console.log(error.response);
+    }
+     
+ }
     const [signUp,doSignUp] = useState(false);
     const signIn = () =>{
         doSignUp(true);
@@ -48,7 +63,7 @@ const UserScreen =()=>{
                     <h4 className="mt-1 mb-5 pb-1">We are The CrickChat Team</h4>
                   </div>
   
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={HandleSubmit}>
                     <p>Please login to your account</p>
                       <br/>
                     <div className="form-outline mb-4">
