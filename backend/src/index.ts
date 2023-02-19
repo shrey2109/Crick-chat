@@ -19,7 +19,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('chat', function (message) {
-    console.log('On backend side');
     socket.broadcast.emit('chat',message);
   });
 });

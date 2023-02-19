@@ -1,11 +1,10 @@
-export const chatFunction=function(io){
+export const chatFunction=function(socket){
 
     const app = document.querySelector(".app");
-    const socket = io.connect('http://localhost:5000');
     const sendmsg = app.querySelector(".chat-screen #sendmsg");
     const exitchat = app.querySelector(".chat-screen #exitchat")
 
-    let uname;
+    let uname="user";
     let num=0;
     sendmsg.addEventListener("click",function(){
         
@@ -70,9 +69,5 @@ export const chatFunction=function(io){
         //scroll chat to end
         messageContainer.scrollTop = messageContainer.scrollHeight-messageContainer.clientHeight;
     }
-
-    sendmsg.removeEventListener('click',()=>{
-        console.log('Event Listener removed');
-    });
 
 };

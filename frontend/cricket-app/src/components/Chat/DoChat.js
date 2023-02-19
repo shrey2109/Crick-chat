@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { io } from 'socket.io-client';
 import { chatFunction } from './code';
+let socket;
 const DoChat = () => {
-let num = 0;
+    useEffect(()=>{
+        console.log('userEffect caled');
+         socket = io.connect('http://localhost:5000');
+         chatFunction(socket);
+    
+    },[])
+    let num = 0;
   const [btn, setbtn] = useState(num);
   const clickFunc = () => {
     
@@ -41,7 +48,6 @@ let num = 0;
         </div>
       </div>
       {
-        btn === 1 && chatFunction(io) ?btn++:num
       }
     </>
   );
