@@ -1,7 +1,32 @@
 import { app } from './app';
 import mongoose from 'mongoose';
-import path from 'path';
-require('dotenv').config( {path: path.resolve(__dirname,'./.env') });
+import http from "http";
+import { Server} from "socket.io";
+
+const httpServer = http.createServer(app);
+const io = new Server(httpServer,{
+  cors:{
+    origin: 'http://localhost:3001'
+  }
+});
+
+io.on('connection', function (socket) {
+  socket.on('newuser', function (username) {
+    socket.broadcast.emit('update', username + 'joined the chat');
+  });
+  socket.on('exituser', function (username) {
+    socket.broadcast.emit('update', username + 'left the chat');
+  });
+
+  socket.on('chat', function (message) {
+    socket.broadcast.emit('chat',message);
+  });
+});
+httpServer.listen(5000);
+
+require('dotenv').config();
+
+
 const  start = async() => {
   const PORT= 3000 || process.env.PORT;
   if(!process.env.JWT_KEY)
@@ -22,9 +47,11 @@ const  start = async() => {
   {
     console.log(err);
   }
-  app.listen(PORT, () => {
+  const server=app.listen(PORT, () => {
     console.log(' User service listening on port '+PORT);
     });
+    return server;
 };
 
-start();
+const server=start();
+export {server}

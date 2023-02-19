@@ -1,27 +1,14 @@
-
-(function(){
+export const chatFunction=function(socket){
 
     const app = document.querySelector(".app");
-    const socket = io();
-    const adduser = app.querySelector(".join-screen #join-user");
     const sendmsg = app.querySelector(".chat-screen #sendmsg");
     const exitchat = app.querySelector(".chat-screen #exitchat")
 
-    let uname;
-
-    adduser.addEventListener("click",function(){
-        let username = app.querySelector(".join-screen #username").value;
-        if(username.length == 0){
-            return;
-        }
-        socket.emit("newuser", username);
-        uname = username;
-        app.querySelector(".join-screen").classList.remove("active");
-        app.querySelector(".chat-screen").classList.add("active");
-    });
-
-
+    let uname="user";
+    let num=0;
     sendmsg.addEventListener("click",function(){
+        
+        console.log(num++);
         let message = app.querySelector(".chat-screen #message-input").value;
         if(message.length == 0){
             return;
@@ -83,4 +70,4 @@
         messageContainer.scrollTop = messageContainer.scrollHeight-messageContainer.clientHeight;
     }
 
-})();
+};

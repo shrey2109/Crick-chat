@@ -1,39 +1,54 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./UserScreen.css";
-const handleSubmit = async (event)=>{
-   event.preventDefault();
-   const formData =new FormData(event.target);
-   console.log(formData);
+import { useNavigate } from "react-router-dom";
 
-   const optionAxios = {
-    headers: {
-       'Content-Type': 'application/json',
-    },
-  };
-   try{
-    const {data} = await axios.post('http://localhost:3000/api/users/signup',{
-    "email":"hrs1705@gmail.com",
-    "password":"jipjpaojhg",
-    "gender":"male",
-    "name":"HETAV",
-    "age":34
-   },optionAxios )
-   }catch(error)
-   {
-    console.log(error.response);
-   }
-   
-   
-}
+import "./UserScreen.css";
+
 const UserScreen =()=>{
+  const navigate = useNavigate();
+  const HandleSubmit = async (event)=>{
+    event.preventDefault();
+    const mail = document.getElementById("form2Example11").value;
+    const password = document.getElementById("form2Example22").value;
+    // const username = document.getElementById('form2Example33').value;
+    // const gender = document.getElementsByName('gender').value;
+ 
+   //  const formData =new FormData();
+   //  console.log(document.getElementById("form2Example11").value);
+   //  formData.append("email", document.getElementById("form2Example11").value);
+   //  for(let [k, v] of formData.entries()){
+   //    console.log(k, v);
+       
+   //   }
+    
+    const optionAxios = {
+     headers: {
+        'Content-Type': 'application/json',
+     },
+   };
+    try{
+     const {data} = await axios.post('http://localhost:3000/api/users/signup',{
+     "email": mail,
+     "password": password,
+     "gender":"male",
+     "name":"HETAV",
+     "age":34
+    },optionAxios );
+    navigate('/home');
+ 
+    }catch(error)
+    {
+     console.log(error.response);
+    }
+     
+ }
     const [signUp,doSignUp] = useState(false);
     const signIn = () =>{
         doSignUp(true);
     }
     return (
         <>
-          <section className="h-100 gradient-form"  style={{backgroundColor: "#eee"}}>
+          <section className="h-100 gradient-form"  style={{backgroundColor: "black"}}>
     <div className="container py-5 h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-xl-10">
@@ -48,7 +63,7 @@ const UserScreen =()=>{
                     <h4 className="mt-1 mb-5 pb-1">We are The CrickChat Team</h4>
                   </div>
   
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={HandleSubmit}>
                     <p>Please login to your account</p>
                       <br/>
                     <div className="form-outline mb-4">
@@ -86,7 +101,7 @@ const UserScreen =()=>{
                     <>
                     <div className="d-flex align-items-center justify-content-center pb-4">
                       <p className="mb-0 me-2">Don't have an account?</p>
-                      <button type="button" className="btn btn-outline-danger" onClick={signIn}>Create new</button>
+                      <button type="button" className="btn" id="createBtn" onClick={signIn}>Create new</button>
                     </div>
                     </>
                    }
