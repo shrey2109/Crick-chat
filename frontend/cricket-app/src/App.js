@@ -4,8 +4,6 @@ import HomeScreen from "./screen/HomeScreen";
 import MainScreen from "./screen/MainScreen";
 import UserScreen from "./screen/UserScreen";
 import DoChat from "./components/Chat/DoChat";
-import ScoreScreen from "./screen/ScoreScreen";
-import MainScreen from "./screen/MainScreen";
 import ErrorScreen from "./screen/ErrorScreen";
 
 const App = () => {

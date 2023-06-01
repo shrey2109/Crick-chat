@@ -47,6 +47,7 @@ const UserScreen = () => {
           }
 
         }
+        console.log(fg);
         const name=document.getElementById("form2Example33").value;
         const { data } = await axios.post('http://localhost:3000/api/users/signup', {
           "email": mail,
@@ -71,8 +72,8 @@ const UserScreen = () => {
     }
     return (
         <>
-          <section className="h-100 gradient-form"  style={{backgroundColor: "black"}}>
-    <div className="container py-5 h-100">
+          <section className="h-100 gradient-form"  style={{backgroundColor: "#d5d5d5"}}>
+    <div className="container h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-xl-10">
           <div className="card rounded-3 text-black">
@@ -109,7 +110,7 @@ const UserScreen = () => {
 
                     <div className="form-outline mb-4">
                       Select Your Gender:&nbsp;
-                      <input type="radio" value="MALE" name="gender"/> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="FEMALE" name="gender"/> Female
+                      <input type="radio" value="male" name="gender"/> Male  &nbsp;&nbsp;&nbsp; <input type="radio" value="female" name="gender"/> Female
                     </div>
                     </>
                    }

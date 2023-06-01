@@ -26,7 +26,8 @@ const DoChat = () => {
             <div className="logo">Chatroom</div>
             <button id="exitchat">Clear</button>
           </div>
-          <div className="messages"></div>
+          <div className="messages" style={{height:"629px"}}>
+          </div>
           <div className="typebox">
             <input type="text" id="message-input" />
             <button id="sendmsg" onClick={clickFunc}>
